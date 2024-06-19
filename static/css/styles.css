@@ -1,0 +1,15 @@
+body {
+    padding-top: 56px; /* Ajusta esto según la altura de tu barra de navegación */
+}
+
+.navbar {
+    z-index: 1000; /* Asegura que la barra de navegación esté encima del contenido */
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+/* Estilos adicionales según sea necesario */

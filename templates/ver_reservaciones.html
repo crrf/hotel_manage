@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Ver Reservaciones{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Reservaciones Actuales</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Hotel</th>
+                <th>Check-In</th>
+                <th>Check-Out</th>
+                <th>Usuario</th>
+                <th>Correo</th>
+                <th>Método de Pago</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservacion in reservaciones %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ reservacion.hotel }}</td>
+                <td>{{ reservacion.checkin.strftime('%Y-%m-%d') }}</td>
+                <td>{{ reservacion.checkout.strftime('%Y-%m-%d') }}</td>
+                <td>{{ reservacion.usuario.username }}</td>
+                <td>{{ reservacion.correo }}</td>
+                <td>{{ reservacion.metodo_pago }}</td>
+                <td>
+                    <!-- Aquí podrías colocar enlaces para editar o eliminar la reserva -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

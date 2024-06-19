@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+
+
+<br>
+<div align ='center'>
+    <a class="nav-link" href="{{ url_for('admin_hoteles') }}">VER HOTELES</a>
+</div>
+<br>
+<br>
+<div align ='center'>
+    <a class="nav-link" href="{{ url_for('admin_reservaciones') }}">VER RESERVAS</a>
+</div>
+<h1>User Administration</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>
+                <a href="{{ url_for('edit_user', user_id=user.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+   
+</table>
+
+
+
+{% endblock %}

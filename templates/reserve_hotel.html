@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Reservar Hotel{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Reservar Hotel</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="hotel">Hotel:</label>
+            <select class="form-control" id="hotel" name="hotel" required>
+                {% for hotel in hoteles %}
+                    <option value="{{ hotel.Hotel }}">{{ hotel.Hotel }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="checkin">Fecha de Check-In:</label>
+            <input type="date" class="form-control" id="checkin" name="checkin" required>
+        </div>
+        <div class="form-group">
+            <label for="checkout">Fecha de Check-Out:</label>
+            <input type="date" class="form-control" id="checkout" name="checkout" required>
+        </div>
+        <div class="form-group">
+            <label for="correo">Correo:</label>
+            <input type="email" class="form-control" id="correo" name="correo" required>
+        </div>
+        <div class="form-group">
+            <label for="metodo_pago">Método de Pago:</label>
+            <input type="text" class="form-control" id="metodo_pago" name="metodo_pago" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Reservar</button>
+    </form>
+</div>
+{% endblock %}

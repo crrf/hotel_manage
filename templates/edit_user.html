@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+<h1>Edit User</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" name="username" value="{{ user.username }}" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password (leave blank to keep current):</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<a href="{{ url_for('admin') }}">Back to admin</a>
+{% endblock %}

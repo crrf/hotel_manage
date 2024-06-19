@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Hoteles{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Administrar Hoteles</h1>
+    <a href="{{ url_for('add_hotel') }}" class="btn btn-primary mb-2">Agregar Hotel</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Hotel</th>
+                <th>Disponibilidad de Habitaciones</th>
+                <th>Precio por Noche</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hoteles %}
+            <tr>
+                <td>{{ hotel.Hotel }}</td>
+                <td>{{ hotel.disponibilidad_habitaciones }}</td>
+                <td>{{ hotel.precio }}</td>
+                <td>
+                    <a href="{{ url_for('edit_hotel', hotel_id=hotel.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <form action="{{ url_for('delete_hotel', hotel_id=hotel.id) }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

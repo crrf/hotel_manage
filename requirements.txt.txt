@@ -1,0 +1,6 @@
+flask
+peewee
+werkzeug
+flask-bootstrap
+functools
+flask-login

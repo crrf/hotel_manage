@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Reservación{% endblock %}
+
+{% block content %}
+<h1>Editar Reservación</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="hotel">Hotel:</label>
+        <input type="text" class="form-control" id="hotel" name="hotel" value="{{ reservacion.hotel }}">
+    </div>
+    <div class="form-group">
+        <label for="checkin">Check-In:</label>
+        <input type="date" class="form-control" id="checkin" name="checkin" value="{{ reservacion.checkin|default('') }}">
+    </div>
+    <div class="form-group">
+        <label for="checkout">Check-Out:</label>
+        <input type="date" class="form-control" id="checkout" name="checkout" value="{{ reservacion.checkout|default('') }}">
+    </div>
+    <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input type="email" class="form-control" id="correo" name="correo" value="{{ reservacion.correo }}">
+    </div>
+    <div class="form-group">
+        <label for="metodo_pago">Método de Pago:</label>
+        <input type="text" class="form-control" id="metodo_pago" name="metodo_pago" value="{{ reservacion.metodo_pago }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}
