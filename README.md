@@ -4,6 +4,8 @@ python -m venv venv
 cd venv 
 
 
+git clone https://github.com/crrf/hotel_manage
+
 Scripts/Activate.ps1
 
 
